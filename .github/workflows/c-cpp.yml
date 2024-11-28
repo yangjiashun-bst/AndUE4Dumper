@@ -16,7 +16,7 @@ jobs:
      
     - name: make
       run: |
-       cd build 
+       cd ${{ github.workspace }}/AndUE4Dumper 
        make
     - name: make check
       run: make check
