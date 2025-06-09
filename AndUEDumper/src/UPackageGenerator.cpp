@@ -299,8 +299,8 @@ void UE_UPackage::AppendStructsToBuffer(std::vector<Struct> &arr, BufferFmt *pBu
 {
     for (auto &s : arr)
     {
-        pBufFmt->append("// Object: {}\n// Addr: 0x{:X} // Size: 0x{:X} (Inherited: 0x{:X})\n{}\n{{",
-                        s.FullName, uintptr_t(s.addr), s.Size, s.Inherited, s.CppName);
+        pBufFmt->append("// Object: {}\n// Addr: 0x{:X}\n // Size: 0x{:X} (Inherited: 0x{:X})\n{}\n{{",
+                        s.FullName, uintptr_t(s.addr) - UEWrappers::GetUEVars()->GetBaseAddress(), s.Size, s.Inherited, s.CppName);
 
         if (s.Members.size())
         {
