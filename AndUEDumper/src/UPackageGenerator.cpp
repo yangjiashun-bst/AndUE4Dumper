@@ -110,7 +110,7 @@ void UE_UPackage::GenerateStruct(const UE_UStruct &object, std::vector<Struct> &
 
     s.CppName = "struct ";
     s.CppName += object.GetCppName();
-
+    s.addr = object.GetAddress();
     s.Inherited = 0;
     s.Size = object.GetSize();
 
@@ -299,8 +299,8 @@ void UE_UPackage::AppendStructsToBuffer(std::vector<Struct> &arr, BufferFmt *pBu
 {
     for (auto &s : arr)
     {
-        pBufFmt->append("// Object: {}\n// Size: 0x{:X} (Inherited: 0x{:X})\n{}\n{{",
-                        s.FullName, s.Size, s.Inherited, s.CppName);
+        pBufFmt->append("// Object: {}\n// Addr: 0x{:X} // Size: 0x{:X} (Inherited: 0x{:X})\n{}\n{{",
+                        s.FullName, uintptr_t(s.addr), s.Size, s.Inherited, s.CppName);
 
         if (s.Members.size())
         {

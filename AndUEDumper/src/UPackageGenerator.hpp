@@ -41,6 +41,7 @@ private:
         uint32_t Size = 0;
         std::vector<Member> Members;
         std::vector<Function> Functions;
+        uint8_t* addr; 
     };
     struct Enum
     {
