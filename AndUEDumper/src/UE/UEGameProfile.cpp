@@ -70,6 +70,7 @@ UEVarsInitStatus IGameProfile::InitUEVars()
     };
 
     _UEVars.GUObjectsArrayPtr = GetGUObjectArrayPtr();
+      LOGE("GUObjectArray:0x%X", _UEVars.GUObjectsArrayPtr- _UEVars.BaseAddress);
     if (!PtrValidator.isPtrReadable(_UEVars.GUObjectsArrayPtr))
         return UEVarsInitStatus::ERROR_INIT_GUOBJECTARRAY;
 

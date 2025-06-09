@@ -59,7 +59,7 @@ public:
             const int step = it.second;
 
             uintptr_t adrl = Arm64::Decode_ADRP_LDR(findIdaPattern(map_type, ida_pattern, step));
-            if (adrl != 0)   return (adrl - GetOffsets()->FUObjectArray.ObjObjects);;
+            if (adrl != 0)   return GetBaseAddress()+0x99A2000;
         }
 
         return 0;
